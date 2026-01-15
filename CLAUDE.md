@@ -2,6 +2,12 @@
 
 This file provides guidance to Claude Code (claude.ai/code) when working with code in this repository.
 
+## Session Memory
+
+**WICHTIG:** Es gibt ein Session Memory unter `.claude/session-memory.md` - **immer zuerst lesen** um den aktuellen Projektstand zu kennen!
+
+Nach jeder Session eine kurze Notiz im Session Memory hinzufügen.
+
 ## Commands
 
 ```bash
@@ -29,3 +35,11 @@ This is a Nuxt 4 application using Vue 3 with the following modules:
 - `app/` - Application source (Vue components, pages, layouts)
 - `public/` - Static assets served at root
 - `nuxt.config.ts` - Nuxt configuration
+- `.claude/session-memory.md` - Session Memory (Projektfortschritt)
+
+## Design System
+
+- **Primärfarbe:** Orange (#f97316 / orange-500)
+- **Hintergrund:** Dunkel (gray-950, gray-900)
+- **Text:** Weiß und Grau
+- **Bilder:** Externe URLs von peppermint-digital.de
