@@ -1,11 +1,17 @@
 <script setup lang="ts">
+// Hero image from original site
+const heroImage = 'https://peppermint-digital.de/wp-content/uploads/2024/09/peppermint-digital-header-team.webp'
+
+// Team members with images from original site
 const team = [
-  { name: 'Chris Tolksdorf', role: 'Geschäftsführer', image: null },
-  { name: 'Team Member', role: 'Creative Director', image: null },
-  { name: 'Team Member', role: 'Lead Developer', image: null },
-  { name: 'Team Member', role: 'Filmproduktion', image: null },
-  { name: 'Team Member', role: 'Marketing', image: null },
-  { name: 'Team Member', role: 'Design', image: null },
+  { name: 'Volker Tolksdorf', role: 'Geschäftsführer', image: 'https://peppermint-digital.de/teambilder/volker-tolksdorf.webp' },
+  { name: 'Roman Jordan', role: 'Geschäftsführer', image: 'https://peppermint-digital.de/teambilder/roman-jordan.webp' },
+  { name: 'Chris Tolksdorf', role: 'Prokurist', image: 'https://peppermint-digital.de/teambilder/chris-tolksdorf.webp' },
+  { name: 'Sarah Kurzidim', role: 'Buchhaltung', image: 'https://peppermint-digital.de/teambilder/sarah.webp' },
+  { name: 'Bastian Henneberg', role: 'Head of Development', image: 'https://peppermint-digital.de/teambilder/bastian-henneberg.webp' },
+  { name: 'Pauline Weber', role: 'Mediengestalterin', image: 'https://peppermint-digital.de/teambilder/pauline-gottschalk.webp' },
+  { name: 'Mika Lehr', role: '3D Artist & Video-Operator', image: 'https://peppermint-digital.de/teambilder/mika-lehr.webp' },
+  { name: 'Klaus Henneberg', role: 'Produktion', image: 'https://peppermint-digital.de/teambilder/klaus-henneberg.webp' },
 ]
 
 const values = [
@@ -19,16 +25,25 @@ const values = [
 <template>
   <div>
     <!-- Hero -->
-    <section class="pt-32 pb-20 bg-gray-950">
-      <UContainer>
-        <div class="max-w-4xl">
-          <UBadge color="orange" variant="soft" class="mb-6">Über uns</UBadge>
-          <h1 class="text-5xl md:text-6xl font-black text-white mb-6">
+    <section class="relative min-h-[70vh] flex items-center justify-center overflow-hidden">
+      <!-- Background Image -->
+      <div class="absolute inset-0">
+        <img
+          :src="heroImage"
+          alt="Peppermint Digital Team"
+          class="absolute inset-0 w-full h-full object-cover"
+        />
+        <div class="absolute inset-0 bg-black/60" />
+      </div>
+      <UContainer class="relative z-10">
+        <div class="text-center max-w-4xl mx-auto">
+          <UBadge color="orange" variant="soft" class="mb-6">Das sind wir!</UBadge>
+          <h1 class="text-5xl md:text-7xl font-black text-white mb-6">
             Digitalagentur<br />
             <span class="text-orange-500">Hannover</span>
           </h1>
-          <p class="text-xl text-gray-400 leading-relaxed">
-            Wir sind eine Kreativ- und Digitalagentur aus Hannover mit Fokus auf hochwertige Filmproduktion, individuelle Webentwicklung und maßgeschneiderte Softwarelösungen. Ob emotionaler Imagefilm, performante Website oder digitale Plattform – wir entwickeln, gestalten und produzieren für Kund:innen in Hannover und bundesweit.
+          <p class="text-xl text-gray-300 leading-relaxed max-w-2xl mx-auto">
+            Peppermint Digital – Ihre Digitalagentur aus Hannover
           </p>
         </div>
       </UContainer>
@@ -99,21 +114,25 @@ const values = [
           <UBadge color="orange" variant="soft" class="mb-4">Unser Team</UBadge>
           <h2 class="text-4xl font-black text-white mb-4">Die Menschen hinter Peppermint</h2>
           <p class="text-gray-400 text-lg max-w-2xl mx-auto">
-            Ein Team aus kreativen Köpfen, Technik-Enthusiasten und Marketing-Experten
+            Unsere Digitalagentur besteht aktuell aus einem festen Team von 20 Personen. Vom Grafikdesigner über Software-Entwickler bis zum Videografen – diese kompetenten Menschen stecken hinter dem #teampeppermint.
           </p>
         </div>
 
-        <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-6">
+        <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8">
           <div
             v-for="(member, index) in team"
             :key="index"
-            class="group"
+            class="group text-center"
           >
-            <div class="aspect-square bg-gray-800 rounded-2xl mb-4 flex items-center justify-center overflow-hidden group-hover:ring-2 group-hover:ring-orange-500 transition-all">
-              <UIcon name="i-heroicons-user" class="w-16 h-16 text-gray-600 group-hover:text-orange-500 transition-colors" />
+            <div class="aspect-square bg-gradient-to-br from-orange-100 to-orange-200 rounded-3xl mb-4 overflow-hidden group-hover:ring-4 group-hover:ring-orange-500/50 transition-all duration-300">
+              <img
+                :src="member.image"
+                :alt="member.name"
+                class="w-full h-full object-cover"
+              />
             </div>
-            <h3 class="text-white font-semibold text-center">{{ member.name }}</h3>
-            <p class="text-gray-500 text-sm text-center">{{ member.role }}</p>
+            <h3 class="text-orange-500 font-bold text-lg">{{ member.name }}</h3>
+            <p class="text-gray-400 text-sm">{{ member.role }}</p>
           </div>
         </div>
       </UContainer>
