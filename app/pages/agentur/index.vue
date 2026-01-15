@@ -1,6 +1,6 @@
 <script setup lang="ts">
 // Hero image from original site
-const heroImage = 'https://peppermint-digital.de/wp-content/uploads/2024/09/peppermint-digital-header-team.webp'
+const heroImage = 'https://peppermint-digital.de/header-agentur.webp'
 
 // Team members with images from original site
 const team = [
