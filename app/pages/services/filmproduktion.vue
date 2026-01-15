@@ -70,11 +70,11 @@ const prozess = [
     </section>
 
     <!-- Prozess -->
-    <section class="py-24 bg-gray-950 overflow-hidden">
+    <section class="py-32 bg-gradient-to-b from-gray-950 via-gray-900 to-gray-950 overflow-hidden">
       <UContainer>
-        <div class="text-center mb-16">
+        <div class="text-center mb-20">
           <UBadge color="orange" variant="soft" class="mb-4">Von der Idee zum Film</UBadge>
-          <h2 class="text-4xl font-black text-white mb-4">Unser Prozess</h2>
+          <h2 class="text-4xl md:text-5xl font-black text-white mb-4">Unser Prozess</h2>
           <p class="text-gray-400 text-lg max-w-2xl mx-auto">
             In vier Schritten verwandeln wir Ihre Vision in bewegte Bilder
           </p>
@@ -83,34 +83,40 @@ const prozess = [
         <!-- Process Timeline -->
         <div class="relative">
           <!-- Connecting Line (Desktop) -->
-          <div class="hidden lg:block absolute top-24 left-0 right-0 h-1 bg-gradient-to-r from-orange-500/0 via-orange-500 to-orange-500/0" />
+          <div class="hidden lg:block absolute top-1/2 left-[12%] right-[12%] h-px bg-gradient-to-r from-transparent via-orange-500/40 to-transparent" />
 
-          <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+          <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 lg:gap-4">
             <div
               v-for="(item, index) in prozess"
               :key="index"
-              class="relative group"
+              class="relative group flex"
             >
               <!-- Card -->
-              <div class="bg-gray-900 rounded-3xl p-8 border border-gray-800 hover:border-orange-500/50 transition-all duration-500 hover:transform hover:-translate-y-2 hover:shadow-2xl hover:shadow-orange-500/10">
-                <!-- Step Number Badge -->
-                <div class="absolute -top-4 left-8 bg-orange-500 text-white text-sm font-bold px-4 py-2 rounded-full shadow-lg shadow-orange-500/30">
-                  Schritt {{ item.step }}
+              <div class="flex flex-col bg-gray-900/80 backdrop-blur-sm rounded-2xl p-8 border border-gray-800/50 hover:border-orange-500/30 transition-all duration-500 hover:bg-gray-900 hover:shadow-xl hover:shadow-orange-500/5 w-full">
+                <!-- Step Number -->
+                <div class="flex items-center gap-3 mb-6">
+                  <span class="text-5xl font-black text-orange-500/20 group-hover:text-orange-500/30 transition-colors">{{ item.step }}</span>
                 </div>
 
-                <!-- Icon Circle -->
-                <div class="w-16 h-16 bg-gradient-to-br from-orange-500 to-orange-600 rounded-2xl flex items-center justify-center mb-6 mt-4 group-hover:scale-110 transition-transform duration-300 shadow-lg shadow-orange-500/20">
-                  <UIcon :name="item.icon" class="w-8 h-8 text-white" />
+                <!-- Icon -->
+                <div class="w-12 h-12 bg-orange-500/10 rounded-xl flex items-center justify-center mb-5 group-hover:bg-orange-500/20 transition-all duration-300">
+                  <UIcon :name="item.icon" class="w-6 h-6 text-orange-500" />
                 </div>
 
                 <!-- Content -->
-                <h3 class="text-xl font-bold text-white mb-3">{{ item.title }}</h3>
-                <p class="text-gray-400 leading-relaxed">{{ item.description }}</p>
+                <h3 class="text-lg font-bold text-white mb-2">{{ item.title }}</h3>
+                <p class="text-gray-500 text-sm leading-relaxed flex-grow">{{ item.description }}</p>
 
-                <!-- Decorative Arrow (Desktop) -->
-                <div v-if="index < 3" class="hidden lg:flex absolute -right-4 top-1/2 transform -translate-y-1/2 z-10">
-                  <div class="w-8 h-8 bg-orange-500 rounded-full flex items-center justify-center shadow-lg">
-                    <UIcon name="i-heroicons-arrow-right" class="w-4 h-4 text-white" />
+                <!-- Progress Indicator -->
+                <div class="mt-6 pt-4 border-t border-gray-800/50">
+                  <div class="flex items-center gap-2">
+                    <div class="h-1 flex-grow bg-gray-800 rounded-full overflow-hidden">
+                      <div
+                        class="h-full bg-gradient-to-r from-orange-500 to-orange-400 rounded-full transition-all duration-500 group-hover:w-full"
+                        :style="{ width: `${(index + 1) * 25}%` }"
+                      />
+                    </div>
+                    <span class="text-xs text-gray-600 font-medium">{{ (index + 1) * 25 }}%</span>
                   </div>
                 </div>
               </div>
