@@ -124,11 +124,11 @@ const values = [
             :key="index"
             class="group text-center"
           >
-            <div class="aspect-square bg-gradient-to-br from-orange-100 to-orange-200 rounded-3xl mb-4 overflow-hidden group-hover:ring-4 group-hover:ring-orange-500/50 transition-all duration-300">
+            <div class="aspect-square rounded-3xl mb-4 overflow-hidden group-hover:ring-4 group-hover:ring-orange-500/50 transition-all duration-300">
               <img
                 :src="member.image"
                 :alt="member.name"
-                class="w-full h-full object-cover"
+                class="w-full h-full object-cover object-top"
               />
             </div>
             <h3 class="text-orange-500 font-bold text-lg">{{ member.name }}</h3>
