@@ -11,5 +11,14 @@ export default defineNuxtConfig({
     '@nuxt/scripts',
     '@nuxt/test-utils',
     '@nuxt/ui'
-  ]
+  ],
+
+  css: ['~/assets/css/main.css'],
+
+  image: {
+    domains: ['peppermint-digital.de'],
+    alias: {
+      peppermint: 'https://peppermint-digital.de'
+    }
+  }
 })
